@@ -11,7 +11,10 @@ public:
 
 	void AddItemToFront(Candidate& candidate);
 	void RemoveFront();
+	Candidate ReturnFrontItem();
+
 	void RemoveItem(Candidate& candidate);
+
 
 	Candidate FindCandidate(double candidateID);
 

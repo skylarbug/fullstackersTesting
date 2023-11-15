@@ -53,6 +53,11 @@ void CandidateLinkedList::AddItemToFront(Candidate& candidate)
 
 }
 
+Candidate CandidateLinkedList::ReturnFrontItem()
+{
+	return head->candidate;
+}
+
 void CandidateLinkedList::RemoveItem(Candidate& candidate)
 {
 	if (!Empty())

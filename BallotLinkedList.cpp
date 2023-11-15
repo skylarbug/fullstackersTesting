@@ -46,6 +46,11 @@ void BallotLinkedList::AddItemToFront(Ballot& ballot)
 	head = temp;
 }
 
+Ballot BallotLinkedList::ReturnFrontItem()
+{
+	return head->ballot;
+}
+
 void BallotLinkedList::RemoveItem(Ballot& ballot)
 {
 	if (!Empty())
