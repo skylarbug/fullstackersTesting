@@ -2,6 +2,8 @@
 
 Ballot::Ballot() {
 	FilledIn = false;
+	BallotId,DistrictID,GovernorVote,SenatorVote,PresidentialVote = -1;
+
 }
 Ballot::~Ballot() {
 

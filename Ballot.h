@@ -11,6 +11,7 @@ public:
 
 	Ballot();
 	Ballot(double BallotID1, double DistrictID1, double GovernorVote1, double SenatorVote1, double PresidentialVote1, bool FilledIn1);
+	Ballot(Ballot& ballot);
 	~Ballot();
 
 	bool Equals(Ballot ballot);
