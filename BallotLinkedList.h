@@ -20,7 +20,7 @@ public:
 
 
 	
-	BallotLinkedList copy();
+	BallotLinkedList Copy();
 	
 	bool Empty();
 

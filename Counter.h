@@ -15,18 +15,18 @@ public:
 	Counter();
 	~Counter();
 
-	CandidateLinkedList SenCandidateList;
-	CandidateLinkedList GovCandidateList;
-	CandidateLinkedList PresCandidateList;
+	CandidateLinkedList SenLinkedList;
+	CandidateLinkedList GovLinkedList;
+	CandidateLinkedList PresLinkedList;
 	BallotLinkedList BallotList;
 
-	//array of the ballots in the election
-	BallotLinkedList GetBallotArray();
+	//List of the ballots in the election
+	BallotLinkedList GetBallotList();
 
-	//array of each candidate type in the election
-	CandidateLinkedList GetSenCandidateArray();
-	CandidateLinkedList GetGovCandidateArray();
-	CandidateLinkedList GetPresCandidateArray();
+	//List of each candidate type in the election
+	CandidateLinkedList GetSenCandidateList();
+	CandidateLinkedList GetGovCandidateList();
+	CandidateLinkedList GetPresCandidateList();
 
 	//prints the 3 types of candidates
 	void PrintSenatorCandidate();

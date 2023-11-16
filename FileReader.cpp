@@ -26,7 +26,9 @@ void FileReader::ReadCandFile(string fileName){
                 getline(fin, strVec[i], ',');
             }
             for (int i = 0; i < strVec.size()-1; i++) {
-                cout << strVec[i] << "\n";              //instead of printing, this will make candidate objects later.
+                if (strVec[i] != "") {
+                    cout << strVec[i] << "\n";
+                }             //instead of printing, this will make candidate objects later.
             }
             strVec.clear();
         //}

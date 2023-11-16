@@ -2,45 +2,52 @@
 
 #include <iostream>
 #include "Counter.h"
-//#include "CandidateLinkedList.h"
-//#include "BallotLinkedList.h"
-//#include "Ballot.h"
-//#include "Candidate.h"
+#include "BallotLinkedList.h"
+#include "CandidateLinkedList.h"
 
 using namespace std;
 
 //default constructor
 Counter::Counter() {
-
+    CandidateLinkedList SenLinkedList = *(new CandidateLinkedList());
+    CandidateLinkedList GovLinkedList = *(new CandidateLinkedList());
+    CandidateLinkedList PresLinkedList = *(new CandidateLinkedList());
+    CandidateLinkedList BallotList = *(new CandidateLinkedList());
     //ask Sky when she makes the reader classes
+    /*Sky here, this will instantiate a FileReader and that file reader will make Candidate
+    and Ballot objects and assign them to the counter's appropriate linkedList.*/
    
+}
+
+Counter::~Counter() {
+
 }
 
 //GET METHODS
 
-//gets array of the ballots
-BallotLinkedList Counter::GetBallotArray() {
+//gets List of the ballots
+BallotLinkedList Counter::GetBallotList() {
 
     return BallotList;
 
 }
 
-//gets array of the candidates
-CandidateLinkedList Counter::GetSenCandidateArray() {
+//gets List of the candidates
+CandidateLinkedList Counter::GetSenCandidateList() {
 
-    return SenCandidateList;
-
-}
-
-CandidateLinkedList Counter::GetGovCandidateArray() {
-
-    return GovCandidateList;
+    return SenLinkedList;
 
 }
 
-CandidateLinkedList Counter::GetPresCandidateArray() {
+CandidateLinkedList Counter::GetGovCandidateList() {
 
-    return PresCandidateList;
+    return GovLinkedList;
+
+}
+
+CandidateLinkedList Counter::GetPresCandidateList() {
+
+    return PresLinkedList;
 
 }
 
@@ -71,18 +78,18 @@ void Counter::AssignBallotToCandidate(double CandidateID, Ballot& ballot, string
 
     if (CandidateType == "Gov") {
 
-        Candidate candidate = GovCandidateList.FindCandidate(CandidateID);
+        Candidate candidate = GovLinkedList.FindCandidate(CandidateID);
 
         }
     else if (CandidateType == "Sen") {
 
-        Candidate candidate = SenCandidateList.FindCandidate(CandidateID);
+        Candidate candidate = SenLinkedList.FindCandidate(CandidateID);
 
     }
 
     else if (CandidateType == "Pres") {
 
-        Candidate candidate = PresCandidateList.FindCandidate(CandidateID);
+        Candidate candidate = PresLinkedList.FindCandidate(CandidateID);
 
     }
 
@@ -99,7 +106,7 @@ void Counter::PresidentPrint() {
 
     
 
-    CandidateLinkedList list = PresCandidateList.Copy();
+    CandidateLinkedList list = PresLinkedList.Copy();
 
     while (!list.Empty()) {
 
@@ -121,7 +128,7 @@ void Counter::SenatorPrint() {
     cout << "Printing Senator Information and Votes: " << endl;
 
     
-    CandidateLinkedList list = SenCandidateList.Copy();
+    CandidateLinkedList list = SenLinkedList.Copy();
 
     while (!list.Empty()) {
 
@@ -137,7 +144,7 @@ void Counter::GovernorPrint() {
 
     cout << "Printing Governor Information and Votes: " << endl;
 
-    CandidateLinkedList list = GovCandidateList.Copy();
+    CandidateLinkedList list = GovLinkedList.Copy();
 
     while (!list.Empty()) {
 

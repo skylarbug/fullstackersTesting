@@ -121,7 +121,7 @@ Ballot& BallotLinkedList::FindBallot(double ballotID)
 
 
 
-BallotLinkedList BallotLinkedList::copy()
+BallotLinkedList BallotLinkedList::Copy()
 {
 	BallotLinkedList list = BallotLinkedList();
 	BallotNode* temp = head;
