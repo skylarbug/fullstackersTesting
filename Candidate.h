@@ -21,7 +21,7 @@ class Candidate {
 		void CheckForDuplicates(linkedlist BallotList);
 		void CountVotes();
 		list GetBallotList();
-		void AddBallot();
+		void AddBallot(double CandidateID, Ballot ballot, string CandidateType);
 		void RemoveBallot();
 
 		string FName;
