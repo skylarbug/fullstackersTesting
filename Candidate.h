@@ -19,7 +19,7 @@ class Candidate {
 		bool Equals(Candidate candidate);
 		void PrintCandidate(string first, string last, double ID);
 		void CheckForDuplicates(linkedlist BallotList);
-		int CountVotes();
+		void CountVotes();
 		list GetBallotList();
 		void AddBallot();
 		void RemoveBallot();
