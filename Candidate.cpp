@@ -18,7 +18,7 @@ Candidate::Candidate(string first, string last, double ID, double votes, list ba
 	FName = first;
 	LName = last;
 	TotalVotes = votes;
-	BallotList = ballot;
+	BallotList = ballotList;
 };
 
 double Candidate::GetCandidateID() {
