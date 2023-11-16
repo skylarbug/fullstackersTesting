@@ -2,10 +2,10 @@
 
 #include <iostream>
 #include "Counter.h"
-#include "CandidateLinkedList.h"
-#include "BallotLinkedList.h"
-#include "Ballot.h"
-#include "Candidate.h"
+//#include "CandidateLinkedList.h"
+//#include "BallotLinkedList.h"
+//#include "Ballot.h"
+//#include "Candidate.h"
 
 using namespace std;
 
@@ -49,15 +49,15 @@ CandidateLinkedList Counter::GetPresCandidateArray() {
 //finding the ballot for that candidate
 void Counter::FindBallotCandidate() {
 
-        BallotLinkedList list = BallotList.copy();
-        while (!BallotList.Empty()) 
+        BallotLinkedList list = BallotList.Copy();
+        while (!list.Empty()) 
         {
 
-            Ballot ballot = BallotList.GetFrontItem();
+            Ballot ballot = BallotList.ReturnFrontItem();
 
-            AssignBallotToCandidate(ballot.GetGovVote(), ballot, "Gov");
-            AssignBallotToCandidate(ballot.GetSenVote(), ballot, "Sen");
-            AssignBallotToCandidate(ballot.GetPresVote(), ballot, "Pres");
+            AssignBallotToCandidate(ballot.GetGovVoteCandidate(), ballot, "Gov");
+            AssignBallotToCandidate(ballot.GetSenVoteCandidate(), ballot, "Sen");
+            AssignBallotToCandidate(ballot.GetPresVoteCandidate(), ballot, "Pres");
 
             BallotList.RemoveFront();
 
@@ -95,16 +95,18 @@ void Counter::PresidentPrint() {
 
     cout << "Printing President Information and Votes: " << endl;
 
-    Candidate candidate = PresCandidateList.GetFrontItem();
+    
 
-    while (!PresCandidateList.Empty()) {
+    CandidateLinkedList list = PresCandidateList.Copy();
 
-        CandidateLinkedList list = PresCandidateList.copy();
+    while (!list.Empty()) {
 
-        cout << "Candidate Name: " << candidate.GetCandidateName() << endl;
-        cout << "Candidate ID: " << candidate.GetCandidateID() << endl;
-        cout << "Candidate Counted Votes: " << candidate.GetCountedCandidateVotes() << endl;
-        cout << "Candidate Total Votes: " << candidate.GetTotalCandidateVotes() << endl;
+        list.ReturnFrontItem().Print();
+
+        //cout << "Candidate Name: " << candidate.GetCandidateName() << endl; //Needs to be split into FName and LName
+        //cout << "Candidate ID: " << candidate.GetCandidateID() << endl;
+        //cout << "Candidate Counted Votes: " << candidate.GetVotes() << endl;
+        ////cout << "Candidate Total Votes: " << candidate.GetTotalCandidateVotes() << endl;
 
         list.RemoveFront();
 
@@ -116,16 +118,12 @@ void Counter::SenatorPrint() {
 
     cout << "Printing Senator Information and Votes: " << endl;
 
-    CandidateLinkedList list = SenCandidateList.GetFrontItem();
+    
+    CandidateLinkedList list = SenCandidateList.Copy();
 
-    while (!SenCandidateList.Empty()) {
+    while (!list.Empty()) {
 
-        CandidateLinkedList list = SenCandidateList.copy();
-
-        cout << "Candidate Name: " << candidate.GetCandidateName() << endl;
-        cout << "Candidate ID: " << candidate.GetCandidateID() << endl;
-        cout << "Candidate Counted Votes: " << candidate.GetCountedCandidateVotes() << endl;
-        cout << "Candidate Total Votes: " << candidate.GetTotalCandidateVotes() << endl;
+        list.ReturnFrontItem().Print();
 
         list.RemoveFront();
 
@@ -137,16 +135,11 @@ void Counter::GovernorPrint() {
 
     cout << "Printing Governor Information and Votes: " << endl;
 
-    Candidate candidate = GovCandidateList.GetFrontItem();
+    CandidateLinkedList list = GovCandidateList.Copy();
 
-    while (!GovCandidateList.Empty()) {
+    while (!list.Empty()) {
 
-        CandidateLinkedList list = GovCandidateList.copy();
-
-        cout << "Candidate Name: " << candidate.GetCandidateName() << endl;
-        cout << "Candidate ID: " << candidate.GetCandidateID() << endl;
-        cout << "Candidate Counted Votes: " << candidate.GetCountedCandidateVotes() << endl;
-        cout << "Candidate Total Votes: " << candidate.GetTotalCandidateVotes() << endl;
+        list.ReturnFrontItem().Print();
 
         list.RemoveFront();
 
