@@ -11,7 +11,15 @@ Candidate::Candidate(Candidate& candidate) {
 	LName = candidate.GetLName();
 	TotalVotes = candidate.GetTotalVotes();
 	BallotList = candidate.GetBallotList();
-}
+};
+
+Candidate::Candidate(string first, string last, double ID, double votes, list ballot) {
+	CandidateID = ID;
+	FName = first;
+	LName = last;
+	TotalVotes = votes;
+	BallotList = ballot;
+};
 
 double Candidate::GetCandidateID() {
 	return CandidateID;
