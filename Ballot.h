@@ -4,9 +4,9 @@ class Ballot
 public:
 	double BallotID;
 	double DistrictID;
-	double GovernorVote;
-	double SenatorVote;
-	double PresidentialVote;
+	double GovernorVote;//Stores CandidateID
+	double SenatorVote; //Stores CandidateID
+	double PresidentialVote; //Stores Candidate ID
 	bool FilledIn;
 
 	Ballot();
