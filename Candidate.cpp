@@ -39,7 +39,7 @@ string Candidate::GetLName() {
 
 bool Candidate::Equals(Candidate candidate)
 {
-	if (candidate.GetCandidateID() == CandidateID)
+	return (candidate.GetCandidateID() == CandidateID)
 };
 
 void Candidate::PrintCandidate() {
