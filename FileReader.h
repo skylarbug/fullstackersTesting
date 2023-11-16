@@ -14,5 +14,6 @@ public:
 	FileReader();
 	~FileReader();
 	void ReadCandFile(string fileName);
+	void ReadBallotFile(string FileName);
 };
 #endif
