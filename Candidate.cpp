@@ -66,8 +66,10 @@ int Candidate::CountVotes() {
 	return total;
 };
 
-void Candidate::AddBallot() {
-	//under construction
+void Candidate::AddBallot(double CandidateID, Ballot ballot, string CandidateType) {
+	if (type == "Gov")  {
+		Candidate candidate = GovCandidateList.FindCandidate(CandidateID);
+	}
 };
 
 void Candidate::RemoveBallot() {
