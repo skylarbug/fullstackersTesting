@@ -4,8 +4,8 @@
 
 struct BallotNode
 {
-	BallotNode();
-	~BallotNode();
+	//BallotNode();
+	//~BallotNode();
 
 
 	Ballot ballot;

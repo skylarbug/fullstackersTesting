@@ -8,6 +8,12 @@ BallotLinkedList::BallotLinkedList()
 	tail = NULL;
 }
 
+BallotLinkedList::BallotLinkedList(BallotNode &headcopy, BallotNode &tailcopy)
+{
+	*head = headcopy;
+	*tail = tailcopy;
+}
+
 BallotLinkedList::~BallotLinkedList()
 {
 	while (!Empty())
@@ -46,7 +52,7 @@ void BallotLinkedList::AddItemToFront(Ballot& ballot)
 	head = temp;
 }
 
-Ballot BallotLinkedList::ReturnFrontItem()
+Ballot& BallotLinkedList::ReturnFrontItem()
 {
 	return head->ballot;
 }
@@ -95,7 +101,7 @@ void BallotLinkedList::RemoveItem(Ballot& ballot)
 }
 
 
-Ballot BallotLinkedList::FindBallot(double ballotID)
+Ballot& BallotLinkedList::FindBallot(double ballotID)
 {
 	if (!Empty())
 	{
@@ -107,8 +113,24 @@ Ballot BallotLinkedList::FindBallot(double ballotID)
 
 				return temp->ballot;
 			}
+			temp = temp->next;
 		}
 	}
+	return *(new Ballot());
+}
+
+
+
+BallotLinkedList BallotLinkedList::copy()
+{
+	BallotLinkedList list = BallotLinkedList();
+	BallotNode* temp = head;
+	while (temp != NULL)
+	{
+		list.AddItemToFront(temp->ballot);
+		temp = temp->next;
+	}
+	return list;
 }
 
 bool BallotLinkedList::Empty()

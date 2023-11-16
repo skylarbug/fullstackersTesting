@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "CandidateNode.h"
+#include "Candidate.h"
 
 class CandidateLinkedList
 {

@@ -4,8 +4,8 @@
 
 struct CandidateNode
 {
-	CandidateNode();
-	~CandidateNode();
+	//CandidateNode();
+	//~CandidateNode();
 	Candidate candidate;
 	CandidateNode* next;
 	CandidateNode* prev;
