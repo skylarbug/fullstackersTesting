@@ -15,7 +15,7 @@ string Version = "0.0.0.4";
 int main()
 {
 	FileReader reader = FileReader();
-	reader.ReadCandFile("SenCand.csv");
-	Candidate cadnidate1 = Candidate();
+	reader.ReadCandFile("SenCand.csv");//for now, jsut prints the data from SenCand.csv.
+	Candidate SenCandidate1 = Candidate("Patricia","Perrera",14);
 }
 
