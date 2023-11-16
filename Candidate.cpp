@@ -2,7 +2,11 @@
 using namespace std;
 
 Candidate::Candidate() {
-	
+	CandidateId = -1;
+	FName = "";
+	LName ="";
+	TotalVotes = 0;
+	BallotList = NULL;
 };
 
 Candidate::Candidate(Candidate& candidate) {
