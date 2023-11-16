@@ -1,9 +1,15 @@
 #include "Ballot.h"
+#include <iostream>
+#include <string>
+using namespace std;
 
 Ballot::Ballot() {
 	FilledIn = false;
-	BallotId,DistrictID,GovernorVote,SenatorVote,PresidentialVote = -1;
-
+	BallotID = -1;
+	DistrictID = -1;
+	GovernorVote = -1;
+	SenatorVote = -1;
+	PresidentialVote = -1;
 }
 Ballot::~Ballot() {
 
@@ -16,7 +22,7 @@ Ballot::Ballot(double BallotID1, double DistrictID1, double GovernorVote1, doubl
 	PresidentialVote = PresidentialVote1;
 	FilledIn = FilledIn1;
 }
-Ballot::Ballot(Ballot& ballot)
+Ballot::Ballot(Ballot &ballot)
 {
 	BallotID = ballot.GetBallotID();
 	DistrictID = ballot.GetDistict();
@@ -31,37 +37,15 @@ bool Ballot::Equals(Ballot ballot)
 	return (ballot.GetBallotID() == BallotID);
 }
 
-double Ballot::GetBallotID() {
 
-	return BallotID;
-}
-
-double Ballot::GetDistict() {
-	
-	return DistrictID;
-}
-
-double Ballot::GetGovVoteCandidate() {
-	return GovernorVote;
-}
-
-double Ballot::GetSenVoteCandidate() {
-	return SenatorVote;
-}
-
-double Ballot::GetPresVoteCandidate() {
-	return PresidentialVote;
-}
-
-bool Ballot::VerifyFilledIn() {
-	return FilledIn;
-}
 
 void Ballot::Print() {
+	cout << "-----------------" << endl;
 	cout << "BallotID: " << BallotID << endl;
 	cout << "DistrictID: " << DistrictID << endl;
 	cout << "Governor Vote: " << GovernorVote << endl;
 	cout << "Senator Vote: " << SenatorVote << endl;
 	cout << "Presidential Vote: " << PresidentialVote << endl;
-	cout << "Ballot Filled In: " << FilledIn;
+	cout << "Ballot Filled In: " << FilledIn << endl;
+	cout << "------------------" << endl;
 }
