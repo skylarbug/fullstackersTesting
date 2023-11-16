@@ -69,6 +69,15 @@ int Candidate::CountVotes() {
 void Candidate::AddBallot(double CandidateID, Ballot ballot, string CandidateType) {
 	if (type == "Gov")  {
 		Candidate candidate = GovCandidateList.FindCandidate(CandidateID);
+		BallotList.AddItemToFront(ballot);
+	}
+	else if (type == "Sen")  {
+		Candidate candidate = SenCandidateList.FindCandidate(CandidateID);
+		BallotList.AddItemToFront(ballot);
+	}
+	 else if (type == "Pres")  {
+		Candidate candidate = PresCandidateList.FindCandidate(CandidateID);
+		BallotList.AddItemToFront(ballot);
 	}
 };
 
