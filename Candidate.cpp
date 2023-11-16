@@ -2,11 +2,11 @@
 using namespace std;
 
 Candidate::Candidate() {
-	CandidateId = -1;
+	CandidateID = -1;
 	FName = "";
 	LName ="";
 	TotalVotes = 0;
-	BallotList = NULL;
+	BallotList = BallotLinkedList();
 };
 
 Candidate::Candidate(Candidate& candidate) {
@@ -17,12 +17,12 @@ Candidate::Candidate(Candidate& candidate) {
 	BallotList = candidate.GetBallotList();
 };
 
-Candidate::Candidate(string first, string last, double ID, double votes, list ballotList) {
+Candidate::Candidate(string first, string last, double ID, double votes) {
 	CandidateID = ID;
 	FName = first;
 	LName = last;
 	TotalVotes = votes;
-	BallotList = ballotList;
+	BallotList = BallotLinkedList();
 };
 
 double Candidate::GetCandidateID() {
@@ -43,23 +43,25 @@ string Candidate::GetLName() {
 
 bool Candidate::Equals(Candidate candidate)
 {
-	return (candidate.GetCandidateID() == CandidateID)
+	return (candidate.GetCandidateID() == CandidateID);
 };
 
-void Candidate::PrintCandidate() {
+void Candidate::Print() {
+	cout << "----------------" << endl;
 	cout << "Candidate " << CandidateID << ": " << std::endl;
 	cout << "First Name: " << FName << std::endl;
 	cout << "Last Name: " << LName << std::endl;
+	cout << "----------------" << endl;
 	//perhaps add statements to display other information, like district
 };
 
-void Candidate::CheckForDuplicates(linkedlist BallotList) {
+void Candidate::CheckForDuplicates(BallotLinkedList BallotList) {
 	//under construction
 };
 
 void Candidate::CountVotes() {
 	double i = 0;
-	BallotLinkedList list = BallotList.copy();
+	BallotLinkedList list = BallotList.Copy();
 	while(!list.Empty()) {
 		list.RemoveFront();
 		i++;
@@ -67,26 +69,16 @@ void Candidate::CountVotes() {
 	TotalVotes = i;
 };
 
-void Candidate::AddBallot(double CandidateID, Ballot ballot, string CandidateType) {
-	if (type == "Gov")  {
-		Candidate candidate = GovCandidateList.FindCandidate(CandidateID);
+void Candidate::AddBallot(Ballot ballot) {
+	
 		BallotList.AddItemToFront(ballot);
-	}
-	else if (type == "Sen")  {
-		Candidate candidate = SenCandidateList.FindCandidate(CandidateID);
-		BallotList.AddItemToFront(ballot);
-	}
-	 else if (type == "Pres")  {
-		Candidate candidate = PresCandidateList.FindCandidate(CandidateID);
-		BallotList.AddItemToFront(ballot);
-	}
 };
 
-void Candidate::RemoveBallot() {
-	BallotList.RemoveFront();
+void Candidate::RemoveBallot(Ballot ballot) {
+	BallotList.RemoveItem(ballot);
 };
 
-list Candidate::GetBallotList() {
+BallotLinkedList Candidate::GetBallotList() {
 	return BallotList;
 	//currently, I do not know the identifier that I need to use for lists, so I use "list" in its place.
 	//I will go back through later and fix it

@@ -3,32 +3,33 @@
 
 #include <iostream>
 #include<string>
+#include "BallotLinkedList.h"
 
 using namespace std;
 
 class Candidate {
 
-	public
+public:
 		Candidate();
 		Candidate(Candidate& candidate);
-		Candidate(string first, string last, double ID, double votes, list ballotList);
+		Candidate(string first, string last, double ID, double votes);
 		double GetCandidateID();
 		double GetTotalVotes();
 		string GetFName();
 		string GetLName();
 		bool Equals(Candidate candidate);
-		void PrintCandidate(string first, string last, double ID);
-		void CheckForDuplicates(linkedlist BallotList);
+		void Print();
+		void CheckForDuplicates(BallotLinkedList BallotList);
 		void CountVotes();
-		list GetBallotList();
-		void AddBallot(double CandidateID, Ballot ballot, string CandidateType);
-		void RemoveBallot();
+		BallotLinkedList GetBallotList();
+		void AddBallot(Ballot ballot);
+		void RemoveBallot(Ballot ballot);
 
 		string FName;
 		string LName;
 		double CandidateID;
 		double TotalVotes;
-		list BallotList;
+		BallotLinkedList BallotList;
 		// BallotLinkedList CandBallotList;
 
 };

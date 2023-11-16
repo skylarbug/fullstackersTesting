@@ -12,6 +12,9 @@ class Counter {
 
 public:
 	
+	Counter();
+	~Counter();
+
 	CandidateLinkedList SenCandidateList;
 	CandidateLinkedList GovCandidateList;
 	CandidateLinkedList PresCandidateList;
@@ -35,7 +38,7 @@ public:
 	void FindBallotCandidate();
 
 	//assign that voted ballot to the candidate once candidate is found
-	void AssignBallotToCandidate(double CandidateID, Ballot ballot, string CandidateType);
+	void AssignBallotToCandidate(double CandidateID, Ballot& ballot, string CandidateType);
 
 	//overall print function / prints candidate information and their votes
 	void PresidentPrint();

@@ -65,7 +65,9 @@ void Counter::FindBallotCandidate() {
 }
 
 //assigning the ballots to the candidate // checks what the candidate type matches, if (ID) match Gov, assign ballot to Gov, etc
-void Counter::AssignBallotToCandidate(double CandidateID, Ballot ballot, string CandidateType) {
+void Counter::AssignBallotToCandidate(double CandidateID, Ballot& ballot, string CandidateType) {
+
+    Candidate candidate = *(new Candidate());
 
     if (CandidateType == "Gov") {
 
@@ -84,7 +86,7 @@ void Counter::AssignBallotToCandidate(double CandidateID, Ballot ballot, string 
 
     }
 
-    Candidate.AddBallot(ballot); //This might need to be ballot* or ballot&
+    candidate.AddBallot(ballot); //This might need to be ballot* or ballot&
             
 }
 
