@@ -10,7 +10,8 @@ class Candidate {
 
 	public
 		Candidate();
-		Candidate(Candidate& candidate)
+		Candidate(Candidate& candidate);
+		Candidate(string first, string last, double ID, double votes, list ballotList);
 		double GetCandidateID();
 		double GetTotalVotes();
 		string GetFName();
