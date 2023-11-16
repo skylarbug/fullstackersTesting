@@ -62,5 +62,7 @@ int main()
 	counter.SenLinkedList.ReturnFrontItem().Print();	//print the first item in Counter Obj's SenLinkedList
 	cout << "\n\nFront Item in counter.BallotList:\n\n";
 	counter.BallotList.ReturnFrontItem().Print();
+
+	system("pause");
 }
 
