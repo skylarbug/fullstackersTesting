@@ -34,10 +34,10 @@ bool Candidate::Equals(Candidate candidate)
 	if (candidate.GetCandidateID() == CandidateID)
 };
 
-void Candidate::PrintCandidate(string first, string second, double ID) {
-	cout << "Candidate " << ID << ": " << std::endl;
-	cout << "First Name: " << first << std::endl;
-	cout << "Last Name: " << second << std::endl;
+void Candidate::PrintCandidate() {
+	cout << "Candidate " << CandidateID << ": " << std::endl;
+	cout << "First Name: " << FName << std::endl;
+	cout << "Last Name: " << LName << std::endl;
 	//perhaps add statements to display other information, like district
 };
 
