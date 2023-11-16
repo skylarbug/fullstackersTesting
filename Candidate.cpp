@@ -53,17 +53,14 @@ void Candidate::CheckForDuplicates(linkedlist BallotList) {
 	//under construction
 };
 
-int Candidate::CountVotes() {
-	int total = 0;
-	//perhaps add way to dynamically change number of counting variables so that it can be more flexible
-	//will be kept simple for now
-
-
-	//add for loop that goes through array and counts votes
-	//add if statement within loop that checks the candidate ID of the vote (I.E. who the vote is for)
-	//and increases the respective total
-
-	return total;
+void Candidate::CountVotes() {
+	double i = 0;
+	BallotLinkedList list = BallotList.copy();
+	while(!list.Empty()) {
+		list.RemoveFront();
+		i++;
+	}
+	TotalVotes = i;
 };
 
 void Candidate::AddBallot(double CandidateID, Ballot ballot, string CandidateType) {
@@ -82,7 +79,7 @@ void Candidate::AddBallot(double CandidateID, Ballot ballot, string CandidateTyp
 };
 
 void Candidate::RemoveBallot() {
-	//under construction
+	BallotList.RemoveFront();
 };
 
 list Candidate::GetBallotList() {
