@@ -53,7 +53,7 @@ void CandidateLinkedList::AddItemToFront(Candidate& candidate)
 
 }
 
-Candidate CandidateLinkedList::ReturnFrontItem()
+Candidate& CandidateLinkedList::ReturnFrontItem()
 {
 	return head->candidate;
 }
@@ -101,7 +101,7 @@ void CandidateLinkedList::RemoveItem(Candidate& candidate)
 	}
 }
 
-Candidate CandidateLinkedList::FindCandidate(double candidateID)
+Candidate& CandidateLinkedList::FindCandidate(double candidateID)
 {
 	if (!Empty())
 	{
@@ -115,7 +115,19 @@ Candidate CandidateLinkedList::FindCandidate(double candidateID)
 			}
 		}
 	}
-	
+	return *(new Candidate());
+}
+
+CandidateLinkedList CandidateLinkedList::Copy()
+{
+	CandidateLinkedList list = CandidateLinkedList();
+	CandidateNode* temp = head;
+	while (temp != NULL)
+	{
+		list.AddItemToFront(temp->candidate);
+		temp = temp->next;
+	}
+	return list;
 }
 
 

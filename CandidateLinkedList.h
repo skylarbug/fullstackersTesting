@@ -12,14 +12,14 @@ public:
 
 	void AddItemToFront(Candidate& candidate);
 	void RemoveFront();
-	Candidate ReturnFrontItem();
+	Candidate& ReturnFrontItem();
 
 	void RemoveItem(Candidate& candidate);
 
 
-	Candidate FindCandidate(double candidateID);
+	Candidate& FindCandidate(double candidateID);
 
-
+	CandidateLinkedList Copy();
 
 	
 	bool Empty();
