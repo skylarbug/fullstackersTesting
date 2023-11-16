@@ -13,7 +13,7 @@ Candidate::Candidate(Candidate& candidate) {
 	BallotList = candidate.GetBallotList();
 };
 
-Candidate::Candidate(string first, string last, double ID, double votes, list ballot) {
+Candidate::Candidate(string first, string last, double ID, double votes, list ballotList) {
 	CandidateID = ID;
 	FName = first;
 	LName = last;
